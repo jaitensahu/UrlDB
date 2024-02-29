@@ -43,15 +43,19 @@ app.post("/url-shortner", async (req, res) => {
   newdbUrl.save();
 
   res.send(
-    `<p><h2>Here is your shorten url </h2><a href="https://databaseforurls.onrender.com/${shortUrl}">https://databaseforurls.onrender.com/${shortUrl}</a></p>`
+    `<p><h2>Here is your shorten url </h2><a href="https://databaseforurls.onrender.com/url-shortner/${shortUrl}">https://databaseforurls.onrender.com/url-shortner/${shortUrl}</a></p>`
   );
 });
 
-app.get("/:id", async (req, res) => {
+app.get("/url-shortner/:id", async (req, res) => {
   console.log(req.params.id);
-  let allUrls = await urlModel.find({ shortUrl: { $eq: req.params.id } });
-  console.log(allUrls);
-  res.redirect(allUrls[0].longUrl);
+  try {
+    let allUrls = await urlModel.find({ shortUrl: { $eq: req.params.id } });
+    console.log(allUrls);
+    res.redirect(allUrls[0].longUrl);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 app.listen(10000, () => {
