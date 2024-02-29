@@ -42,7 +42,7 @@ app.post("/url-shortner", async (req, res) => {
   newdbUrl.save();
 
   res.send(
-    `<p><h2>Here is your shorten url </h2><a href="http://localhost:10000/${shortUrl}">http://localhost:10000/${shortUrl}</a></p>`
+    `<p><h2>Here is your shorten url </h2><a href="https://databaseforurls.onrender.com/${shortUrl}">https://databaseforurls.onrender.com/${shortUrl}</a></p>`
   );
 });
 
