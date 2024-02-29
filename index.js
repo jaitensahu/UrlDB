@@ -23,10 +23,10 @@ const connetDB = async () => {
 };
 connetDB();
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-});
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.get("/", (req, res) => {
+//   res.sendFile(__dirname + "/index.html");
+// });
 // middleware to convert body data to readble form
 app.use(express.json());
 
