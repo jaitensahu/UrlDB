@@ -3,6 +3,7 @@ import { nanoid } from "nanoid";
 import bodyParser from "body-parser";
 import mongoose, { connect } from "mongoose";
 import dotenv from "dotenv";
+import path from "path";
 
 const urlModel = mongoose.model("urls", {
   shortUrl: { type: String },
@@ -23,10 +24,10 @@ const connetDB = async () => {
 };
 connetDB();
 
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.get("/", (req, res) => {
-//   res.sendFile(__dirname + "/index.html");
-// });
+app.use(bodyParser.urlencoded({ extended: true }));
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
 // middleware to convert body data to readble form
 app.use(express.json());
 
